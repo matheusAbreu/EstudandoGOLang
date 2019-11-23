@@ -10,20 +10,17 @@ type Aresta struct {
 	distancia int
 }
 
-func NovaCidade(nome string) *Vertice
-{
+func NovaCidade(nome string) *Vertice {
 	cidade := Vertice{nome: nome, ligacoes: make(map[string]Aresta)}
 	return &cidade
 }
 
 func (cidade Vertice) AdicionarLigacao(nomeCidadeVizinha string,
-	 cidadeVizinha Vertice, distancia int) 
-{
+	cidadeVizinha Vertice, distancia int) {
 	caminho := Aresta{cidadeVizinha, distancia}
 	cidade.ligacoes[nomeCidadeVizinha] = caminho
 }
 
-func (cidade Vertice) Imprimir() 
-{
+func (cidade Vertice) Imprimir() {
 	//Não implementado. Te juro.
 }
