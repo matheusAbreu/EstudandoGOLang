@@ -55,10 +55,10 @@ func VerificandoCaracterEspecial(text string) bool {
 		if text[i] == '.' || text[i] == ',' || text[i] == '?' ||
 			text[i] == '!' || text[i] == ';' || text[i] == ':' ||
 			text[i] == '[' || text[i] == ']' || text[i] == '-' ||
-			text[i] == '@' || text[i] == '#' ||
+			text[i] == '@' || text[i] == '#' || text[i] == '}' ||
 			text[i] == '$' || text[i] == '%' || text[i] == '&' ||
 			text[i] == '*' || text[i] == '(' || text[i] == ')' ||
-			text[i] == '{' || text[i] == '}' {
+			text[i] == '{' {
 			return true
 		}
 	}
