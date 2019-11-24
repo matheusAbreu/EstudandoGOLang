@@ -5,12 +5,16 @@ type Vertice struct {
 	ligacoes map[string]*Aresta
 }
 
+type no interface {
+	ImprimirNo(alturaAtual int, solucao string)
+}
+
 type Aresta struct {
-	vertice   interface{}
+	vertice   no
 	distancia int
 }
 
-func NovaAresta(vertice interface{}, distancia int) *Aresta {
+func NovaAresta(vertice no, distancia int) *Aresta {
 	aresta := Aresta{vertice: vertice, distancia: distancia}
 	return &aresta
 }
@@ -25,6 +29,6 @@ func (vertice Vertice) AdicionarLigacao(filho *Vertice, distancia int) {
 	vertice.ligacoes[filho.nome] = caminho
 }
 
-func (vertice Vertice) ImprimirNo() {
+func (vertice Vertice) ImprimirNo(alturaAtual int, solucao string) {
 	//Não implementado. Te juro.
 }

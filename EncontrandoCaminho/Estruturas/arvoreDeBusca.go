@@ -27,21 +27,21 @@ func (arvore ArvoreDeBusca) AdicionarLigacao(nomeFilho string,
 func (arvore ArvoreDeBusca) Imprimir(resposta ArvoreDeBusca) {
 	alturaAtual := 0
 	solucao := "G"
-	arvore.ImprimirNo(alturaAtual, solucao, resposta)
+	arvore.ImprimirNo(alturaAtual, solucao)
 }
 
-func (arvore ArvoreDeBusca) ImprimirNo(alturaAtual int, solucao string, resposta ArvoreDeBusca) {
+func (arvore ArvoreDeBusca) ImprimirNo(alturaAtual int, solucao string) {
 	for index := 0; index < alturaAtual; index++ {
 		fmt.Printf("| ")
 	}
-	if arvore.nome == solucao && arvore.valorAcumulado == resposta.valorAcumulado {
+	if arvore.nome == solucao {
 		fmt.Printf("|-+%s_[%b] <-- Resposta\n", arvore.nome, arvore.valorAcumulado)
 	} else {
 		fmt.Printf("|-+%s_[%b]\n", arvore.nome, arvore.valorAcumulado)
 	}
 	alturaAtual++
-	//for _, filho := range arvore.ligacoes {
-	//filho.vertice.ImprimirNo(alturaAtual, solucao, resposta)
-	//}
+	for _, filho := range arvore.ligacoes {
+		filho.vertice.ImprimirNo(alturaAtual, solucao)
+	}
 	alturaAtual--
 }
