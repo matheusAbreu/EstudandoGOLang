@@ -29,7 +29,6 @@ func (text *MeuTexto) AddTexto(novoConteudo string) {
 	for i := 0; i < len(text.conteudo); i++ {
 		if text.conteudo[i] == ' ' {
 			text.posEsp.PushBack(i)
-			//fmt.Println("tem um espaço aqui")
 		}
 	}
 }
@@ -67,11 +66,9 @@ func VerificandoCaracterEspecial(text string) bool {
 }
 
 func (text *MeuTexto) VerificandoPalindromo() bool {
-	/*Retorna 1 se for palindro
-	  Retorna 0 caso não seja*/
 	k := len(text.conteudo)
 
-	if !VerificandoCaracterEspecial(text.conteudo) {
+	if !VerificandoCaracterEspecial(text.conteudo) && k > 0 {
 		for i := 0; i <= k; i++ {
 			k--
 			if text.VerificaExistePosEsp(i) {

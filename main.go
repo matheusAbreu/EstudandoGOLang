@@ -1,67 +1,25 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
+	"os"
 
 	pali "./EncontrandoPalindromo"
 )
 
 func main() {
 
-	textTest := "a gorda ama a droga"
+	scanner := bufio.NewScanner(os.Stdin)
 	testePali := pali.CriaTexto()
-	textParaPali := pali.CriaTexto()
-	textParaPali.AddTexto(textTest)
-	testePali.AddTexto("esse aqui não é um palindromo")
-	fmt.Println(textParaPali.ImprimeMeuTexto())
-	fmt.Println("resultado do teste de palindromo do textParaPali", textParaPali.VerificandoPalindromo())
-	fmt.Println("teste para da falso", testePali.VerificandoPalindromo())
-}
+	fmt.Printf("\nManual:\n")
+	fmt.Printf("1 - Não use letras maiúsculas\n")
+	fmt.Printf("2 - Não utilize acentos pontuações, parênteses, colchetes, chaves, arroba ou sharp\n")
+	fmt.Printf("3 - Espaços serão ignorados na comparação palíndrica\n")
+	fmt.Printf("\nEscreva seu texto:\n")
+	scanner.Scan()
 
-/*
-func InicializarGrafo(grafo map[string]*Estruturas.Vertice) {
-	alfabeto, err := strconv.Atoi("A")
-	if err == nil {
-		for index := 0; index < 7; index++ {
-			nome := strconv.Itoa(alfabeto)
-			grafo[nome] = Estruturas.NovoVertice(nome)
-			alfabeto++
-		}
-		DefinirCaminhoDoGrafo(grafo)
-	}
+	testePali.AddTexto(scanner.Text())
+	fmt.Println(testePali.ImprimeMeuTexto())
+	fmt.Println("resultado do teste de palindromo: ", testePali.VerificandoPalindromo())
 }
-
-func DefinirCaminhoDoGrafo(grafo map[string]*Estruturas.Vertice) {
-	for nome, vertice := range grafo {
-		switch {
-		case nome == "A":
-			vertice.AdicionarLigacao(grafo["B"], 9)
-			vertice.AdicionarLigacao(grafo["C"], 5)
-			vertice.AdicionarLigacao(grafo["D"], 13)
-		case nome == "B":
-			vertice.AdicionarLigacao(grafo["A"], 9)
-			vertice.AdicionarLigacao(grafo["D"], 3)
-			vertice.AdicionarLigacao(grafo["E"], 10)
-		case nome == "C":
-			vertice.AdicionarLigacao(grafo["A"], 5)
-			vertice.AdicionarLigacao(grafo["F"], 12)
-		case nome == "D":
-			vertice.AdicionarLigacao(grafo["A"], 13)
-			vertice.AdicionarLigacao(grafo["B"], 3)
-			vertice.AdicionarLigacao(grafo["E"], 6)
-			vertice.AdicionarLigacao(grafo["G"], 14)
-		case nome == "E":
-			vertice.AdicionarLigacao(grafo["B"], 10)
-			vertice.AdicionarLigacao(grafo["D"], 6)
-			vertice.AdicionarLigacao(grafo["G"], 7)
-		case nome == "F":
-			vertice.AdicionarLigacao(grafo["C"], 12)
-			vertice.AdicionarLigacao(grafo["G"], 10)
-		case nome == "G":
-			vertice.AdicionarLigacao(grafo["D"], 14)
-			vertice.AdicionarLigacao(grafo["E"], 7)
-			vertice.AdicionarLigacao(grafo["F"], 10)
-		}
-	}
-}
-*/
