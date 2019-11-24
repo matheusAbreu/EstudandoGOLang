@@ -2,15 +2,24 @@ package main
 
 import (
 	"fmt"
-	"strconv"
 
-	"./EncontrandoCaminho/Estruturas"
+	"./EncontrandoPalindromo"
 )
 
 func main() {
+	textTest := "A gorda ama a droga"
+	//po := EncontrandoPalindromoexit.MeuTexto{conteudo: "fnwoincuibcve", posEsp: nil}
+	textParaPali := EncontrandoPalindromo.CriaTexto()
+	textParaPali.AddTexto(textTest)
 	fmt.Printf("olá, mundo\n")
+	//fmt.Println(po)
+	fmt.Println(textParaPali.ImprimeMeuTexto())
+	textParaPali.LimpandoMeuTexto()
+	fmt.Println("teste", textParaPali.ImprimeMeuTexto())
+
 }
 
+/*
 func InicializarGrafo(grafo map[string]*Estruturas.Vertice) {
 	alfabeto, err := strconv.Atoi("A")
 	if err == nil {
@@ -56,3 +65,4 @@ func DefinirCaminhoDoGrafo(grafo map[string]*Estruturas.Vertice) {
 		}
 	}
 }
+*/
