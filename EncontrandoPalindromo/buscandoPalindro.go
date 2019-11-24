@@ -2,7 +2,7 @@ package EncontrandoPalindromo
 
 import (
 	"container/list"
-	"fmt"
+	"strconv"
 )
 
 type MeuTexto struct {
@@ -24,12 +24,18 @@ func (text *MeuTexto) AddTexto(novoConteudo string) {
 
 	for i := 0; i < len(text.conteudo); i++ {
 		if text.conteudo[i] == ' ' {
-			fmt.Println("tem um espaço aqui")
+			text.posEsp.PushBack(list.Element{Value: i})
+			//fmt.Println("tem um espaço aqui")
 		}
 	}
 }
 func (text MeuTexto) ImprimeMeuTexto() string {
-	return text.conteudo
+	LocalEsp := "temos " + strconv.Itoa(text.posEsp.Len()) + " na Lista:{"
+	for i := text.posEsp.Front(); i == text.posEsp.Back(); i.Next() {
+		LocalEsp += strconv.Itoa(i.Value.(int)) + "; "
+	}
+	LocalEsp += "}"
+	return text.conteudo + ". " + LocalEsp
 }
 func VerificandoCaracterEspecial(text string) (result bool) {
 	result = false
@@ -48,17 +54,6 @@ func VerificandoCaracterEspecial(text string) (result bool) {
 }
 
 /*
-MeuTexto *criandoMeuTexto()
-{
-    MeuTexto *x;
-
-    x = (MeuTexto*)malloc(1*sizeof(MeuTexto));
-
-    if(x ==NULL)
-        printf("\nHouve um erro na alocacao - CriandoMeuTexto\n");
-
-    return x;
-}
 void identificandoEspacos(MeuTexto *x)
 {
     int temp[x->tam], i, qntEsp =0;
