@@ -1,20 +1,16 @@
 package EncontrandoCaminho
 
-import (
-	"container/list"
+/*
+func NovaOrdem(grafo *Estruturas.ArvoreDeBusca, chegada string,
+	listAberta *list.List, listFechada *list.List) *Estruturas.ArvoreDeBusca {
+	sucesso := false
+	arvResult := Estruturas.ArvoreDeBusca{nome: *grafo.nome, valorAcumulado: grafo.valorAcumulado, ligacoes: make(map[string]*Aresta)}
 
-	"./Estruturas"
-)
-
-func ExpandirOrdenada(grafo *Estruturas.ArvoreDeBusca,
-	listDeAbertos *list.List, listDeFechados *list.List) arvResultado *Estruturas.ArvoreDeBusca {
-	arvResultado := Estruturas.NovaArvore("result")
-
-
-	if &grafo.vertice.ligacoes == nil{
+	for i := range *grafo.ligacoes {
+		arvResult.AdicionarLigacao(grafo.ligacoes[i].nome, grafo.ligacoes[i].distancia, grafo.ligacoes[i].distancia+grafo.valorAcumulado)
 
 	}
-	return 
+	return &arvResult
 }
 
 /*
