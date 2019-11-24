@@ -24,7 +24,7 @@ func (arvore ArvoreDeBusca) AdicionarLigacao(nomeFilho string,
 	arvore.valorAcumulado = valorAcumulado
 }
 
-func (arvore ArvoreDeBusca) Imprimir(resposta ArvoreDeBusca) {
+func (arvore ArvoreDeBusca) Imprimir() {
 	alturaAtual := 0
 	solucao := "G"
 	arvore.ImprimirNo(alturaAtual, solucao)
