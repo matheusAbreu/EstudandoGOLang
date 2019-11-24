@@ -3,6 +3,7 @@ package EncontrandoPalindromo
 import (
 	"container/list"
 	"strconv"
+	str "strings"
 )
 
 type MeuTexto struct {
@@ -24,17 +25,18 @@ func (text *MeuTexto) AddTexto(novoConteudo string) {
 
 	for i := 0; i < len(text.conteudo); i++ {
 		if text.conteudo[i] == ' ' {
-			text.posEsp.PushBack(list.Element{Value: i})
+			text.posEsp.PushBack(i)
 			//fmt.Println("tem um espaço aqui")
 		}
 	}
 }
 func (text MeuTexto) ImprimeMeuTexto() string {
-	LocalEsp := "temos " + strconv.Itoa(text.posEsp.Len()) + " na Lista:{"
-	for i := text.posEsp.Front(); i == text.posEsp.Back(); i.Next() {
+	LocalEsp := "Temos " + strconv.Itoa(text.posEsp.Len()) + " espaços na Lista:{"
+	for i := text.posEsp.Front(); i != nil; i = i.Next() {
 		LocalEsp += strconv.Itoa(i.Value.(int)) + "; "
 	}
 	LocalEsp += "}"
+	LocalEsp = str.Replace(LocalEsp, "; }", "}", -1)
 	return text.conteudo + ". " + LocalEsp
 }
 func VerificandoCaracterEspecial(text string) (result bool) {
