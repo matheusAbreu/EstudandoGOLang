@@ -4,9 +4,10 @@ package EncontrandoCaminho
 func NovaOrdem(grafo *Estruturas.ArvoreDeBusca, chegada string,
 	listAberta *list.List, listFechada *list.List) *Estruturas.ArvoreDeBusca {
 	sucesso := false
-	arvResult := Estruturas.ArvoreDeBusca{nome: *grafo.nome, valorAcumulado: grafo.valorAcumulado, ligacoes: make(map[string]*Aresta)}
+	verticePeq := Estruturas.NovoVertice(grafo.Vertice.nome)
+	arvResult := Estruturas.ArvoreDeBusca{Estruturas.Vertice: *verticePeq, valorAcumulado: grafo.valorAcumulado}
 
-	for i := range *grafo.ligacoes {
+	for i := range *grafo.Vertice.ligacoes {
 		arvResult.AdicionarLigacao(grafo.ligacoes[i].nome, grafo.ligacoes[i].distancia, grafo.ligacoes[i].distancia+grafo.valorAcumulado)
 
 	}
