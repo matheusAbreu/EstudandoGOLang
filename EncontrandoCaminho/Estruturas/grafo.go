@@ -25,6 +25,6 @@ func (vertice Vertice) AdicionarLigacao(filho *Vertice, distancia int) {
 	vertice.ligacoes[filho.nome] = caminho
 }
 
-func (vertice Vertice) Imprimir() {
+func (vertice Vertice) ImprimirNo() {
 	//Não implementado. Te juro.
 }
