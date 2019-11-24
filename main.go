@@ -8,11 +8,14 @@ import (
 
 func main() {
 
-	textTest := "A gorda ama a droga"
+	textTest := "a gorda ama a droga"
+	testePali := pali.CriaTexto()
 	textParaPali := pali.CriaTexto()
 	textParaPali.AddTexto(textTest)
+	testePali.AddTexto("esse aqui não é um palindromo")
 	fmt.Println(textParaPali.ImprimeMeuTexto())
-
+	fmt.Println("resultado do teste de palindromo do textParaPali", textParaPali.VerificandoPalindromo())
+	fmt.Println("teste para da falso", testePali.VerificandoPalindromo())
 }
 
 /*
