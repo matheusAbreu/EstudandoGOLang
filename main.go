@@ -14,8 +14,8 @@ func main() {
 	testePali := pali.CriaTexto()
 	fmt.Printf("\nManual:\n")
 	fmt.Printf("1 - Não use letras maiúsculas\n")
-	fmt.Printf("2 - Não utilize acentos pontuações, parênteses, colchetes, chaves, arroba ou sharp\n")
-	fmt.Printf("3 - Espaços serão ignorados na comparação palíndrica\n")
+	fmt.Printf("2 - Não utilize acentos \n")
+	fmt.Printf("3 - Espaços, pontuações, parênteses, colchetes, chaves, arroba ou sharp serão ignorados na comparação palíndrica\n")
 	fmt.Printf("\nEscreva seu texto:\n")
 	scanner.Scan()
 
